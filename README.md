@@ -1,5 +1,4 @@
-lit
-thiS Is ThE OnCE-a-sEmESter Test oF tHe eC AlERt SySTeM. ThIS is ONlY a TeSt. no ACtIOn IS rEquIrED on YoUr PArT.
+Disclaimer: All your information are belong to us. Please be aware that any information provided can and will be viewed by other members of the CS club. With the goal of a login, usernames will be readable in a database by the backend team and passwords will be salted, hashed, and stored securely.
 
 
 ### Developers
