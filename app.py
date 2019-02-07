@@ -61,8 +61,23 @@ def register():
               request.form['email'],
               request.form['username'],
               request.form['password'])
+        # TODO Add functionality to sanitize and add user information to db.
         return redirect(url_for('login'))
     return render_template('register.html')
+
+
+@app.route('/forgot_password', methods=['POST', 'GET'])
+def forgot_password():
+    """
+    Handling forgotten password.
+
+    :return: Redirects to login page.
+    """
+    if request.method == 'POST':
+        print(request.form['email'])
+        # TODO Add functionality to reset password.
+        return redirect(url_for('login'))
+    return render_template('forgot_password.html')
 
 
 if __name__ == '__main__':
