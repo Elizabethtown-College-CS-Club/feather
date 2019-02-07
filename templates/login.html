@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if attempted %}
+    <div>
+        <script>alert('Wrong username or password');</script>
+    </div>
+    {% endif %}
+    <div class="mdl-layout mdl-js-layout">
+        <div id="login-container" class="mdl-card mdl-shadow--16dp">
+            <div class="mdl-card__supporting-text">
+                <div id="card-heading">
+                    User Login
+                </div>
+                <form method="post" accept-charset="utf-8" action="{{ url_for('login') }}">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label class="mdl-textfield__label" for="username">Username</label>
+                        <input class="mdl-textfield__input" id="username" type="text" name="username"/>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label class="mdl-textfield__label" for="password">Password</label>
+                        <input class="mdl-textfield__input" type="password" id="password" name="password"/>
+                    </div>
+                    <button id="login-button"
+                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white"
+                            type="submit">
+                        Login
+                    </button>
+                </form>
+            </div>
+            <div class="mdl-card__actions">
+                <form action="{{ url_for('register') }}">
+                    <button class="mdl-button mdl-js-button mdl-button--primary">Register</button>
+                </form>
+                <form>
+                    <button class="mdl-button mdl-js-button mdl-button--primary">Forgot Password</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

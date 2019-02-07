@@ -1,34 +1,69 @@
 from flask import Flask
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
 app.debug = True
-app.secret_key = 'This is a random secret key.'
+app.secret_key = b'_MZqRP5HJE&M5mBXZ*pu3fnf8Um%?m$7'
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    """
+    This is the main landing page for logged in users.
 
+    :return: If session is invalid the user is redirected to the login page.
+    """
 
-@app.route('/handle_login', methods=['POST'])
-def handle_login():
-    if request.form['username'] == 'test':
-        return 'Test' + request.form['username'] + ' ' + request.form['password']
+    if 'username' in session:
+        return 'Logged in'
     else:
-        return 'Wrong'
+        return redirect(url_for('login'))
 
 
-@app.route('/dashboard')
-def dashboard():
-    return 'Dashboard home'
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    """
+    Handles the user login.
+
+    :return: Displays either user welcome page or redirects to login.
+    """
+    if request.method == 'GET':
+        return render_template('login.html', attempted=False)
+    else:
+        if request.form['username'] == 'test':
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+        return render_template('login.html', attempted=True)
+
+
+@app.route('/logout')
+def logout():
+    """
+    Ends the session for the user.
+
+    :return: Redirects to login page.
+    """
+
+    session.pop('username', None)
+    return redirect(url_for('login'))
+
+
+@app.route('/register', methods=['POST', 'GET'])
+def register():
+    """
+    Handling user registration.
+
+    :return: Redirects to login page.
+    """
+    if request.method == 'POST':
+        print(request.form['first_name'],
+              request.form['last_name'],
+              request.form['email'],
+              request.form['username'],
+              request.form['password'])
+        return redirect(url_for('login'))
+    return render_template('register.html')
 
 
 if __name__ == '__main__':
-    app.run()
-
-
-"""
-This app in its current status is very insecure. Further measure should be taken to protect the end user from exploits.
-(CSRF)
-"""
+    app.run(debug=True)

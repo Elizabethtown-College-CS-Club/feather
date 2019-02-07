@@ -4,9 +4,21 @@
         <div id="login-container" class="mdl-card mdl-shadow--16dp">
             <div class="mdl-card__supporting-text">
                 <div id="card-heading">
-                    User Login
+                    Registration
                 </div>
-                <form method="post" accept-charset="utf-8" action="{{ url_for('handle_login') }}">
+                <form method="post" accept-charset="utf-8" action="{{ url_for('register') }}">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label class="mdl-textfield__label" for="first_name">First name</label>
+                        <input class="mdl-textfield__input" id="first_name" type="text" name="first_name"/>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label class="mdl-textfield__label" for="last_name">Last name</label>
+                        <input class="mdl-textfield__input" id="last_name" type="text" name="last_name"/>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label class="mdl-textfield__label" for="email">Email</label>
+                        <input class="mdl-textfield__input" id="email" type="text" name="email"/>
+                    </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <label class="mdl-textfield__label" for="username">Username</label>
                         <input class="mdl-textfield__input" id="username" type="text" name="username"/>
@@ -21,13 +33,6 @@
                         Login
                     </button>
                 </form>
-            </div>
-            <div class="mdl-card__actions">
-                <button class="mdl-button mdl-js-button mdl-button--primary" onclick="console.log('Register')">Register
-                </button>
-                <button id='forgotpassword' class="mdl-button mdl-js-button mdl-button--primary"
-                        onclick="console.log('Password forgotten')">Forgot Password
-                </button>
             </div>
         </div>
     </div>
