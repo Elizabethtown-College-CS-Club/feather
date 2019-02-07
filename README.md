@@ -20,3 +20,5 @@ Kevin     - Backend
 Tuyen     - Frontend
 
 Eric      - Frontend
+
+Jonathan  - Backend
