@@ -1,3 +1,5 @@
+this went nowhere
+
 Disclaimer: All your information are belong to us. Please be aware that any information provided can and will be viewed by other members of the CS club. With the goal of a login, usernames will be readable in a database by the backend team and passwords will be salted, hashed, and stored securely.
 
 
